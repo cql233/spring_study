@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="person" class="org.example.Bean.Person" scope="singleton" destroy-method="myDestory" name ="people">
+<!--          init-method="myInit" destroy-method="myDestory"> 如果bean调用了 InitializingBean ,那么init-method会和afterPropertiesSet 冲突，抛出BeanCreationException-->
+        <property name="name" value="张三"></property>
+        <property name="sex" value="男"></property>
+    </bean>
+
+    <bean class="org.example.Bean.MyBeanFactoryPostProcessor"></bean>
+    <bean class="org.example.Bean.MyBeanPostProcessor" ></bean>
+    <bean class="org.example.Bean.MyInstantiationAwareBeanPostProcessor"></bean>
+    <bean class="org.example.aop.AopConfig"/>
+
+</beans>
